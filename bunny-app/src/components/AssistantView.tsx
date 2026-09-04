@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import BunnyAvatar from "./BunnyAvatar";
+import InteractiveBackground from "./InteractiveBackground";
 import { useApp } from "../lib/state";
 import { AudioStreamer } from "../lib/audio";
 import { LiveSession } from "../lib/liveSession";
@@ -146,8 +147,8 @@ export default function AssistantView() {
           onAssistantText: (txt) => {
             assistantBuf.current = dedupTranscript(assistantBuf.current, txt);
             if (sessionId && txt !== lastAssistantSaved.current) {
-              saveMessage(sessionId, "assistant", txt);
-              lastAssistantSaved.current = txt;
+               saveMessage(sessionId, "assistant", txt);
+               lastAssistantSaved.current = txt;
             }
             setToneFromText(txt);
             setInterimAssistant(txt);
@@ -215,26 +216,9 @@ export default function AssistantView() {
 
   return (
     <div className="relative h-full w-full transition-all duration-700" style={background}>
-      {/* Decorative threads */}
-      <div className="pointer-events-none absolute inset-0 opacity-40">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="thread" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#ff5ec4" stopOpacity="0.5" />
-              <stop offset="50%" stopColor="#b76bff" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#3aa8ff" stopOpacity="0.5" />
-            </linearGradient>
-          </defs>
-          {Array.from({ length: 8 }).map((_, i) => (
-            <path
-              key={i}
-              d={`M0 ${10 + i * 12} Q 50 ${i * 8} 100 ${20 + i * 12}`}
-              fill="none"
-              stroke="url(#thread)"
-              strokeWidth="0.1"
-            />
-          ))}
-        </svg>
+      {/* Interactive Animated Background */}
+      <div className="absolute inset-0 z-0">
+        <InteractiveBackground tone={tone} sassiness={sassiness} />
       </div>
 
       <div className="relative z-10 h-full w-full flex flex-col items-center px-4 pb-28 pt-6">
