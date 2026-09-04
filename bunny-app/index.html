@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐰</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#0b0420" />
+    <title>Cute Female Bunny · Voice AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bunny: {
+                bg: "#0b0420",
+                deep: "#160a3a",
+                violet: "#4b1d96",
+                pink: "#ff5ec4",
+                blue: "#3aa8ff",
+                gold: "#ffd56a",
+              },
+            },
+            fontFamily: {
+              display: ['"Space Grotesk"', "system-ui", "sans-serif"],
+              body: ['"Inter"', "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              glow: "0 0 40px rgba(255,94,196,0.35), 0 0 80px rgba(58,168,255,0.25)",
+              ring: "inset 0 0 0 1px rgba(255,255,255,0.08)",
+            },
+            keyframes: {
+              floaty: {
+                "0%,100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-8px)" },
+              },
+              pulseRing: {
+                "0%": { transform: "scale(0.9)", opacity: "0.7" },
+                "100%": { transform: "scale(1.6)", opacity: "0" },
+              },
+              wave: {
+                "0%,100%": { transform: "scaleY(0.35)" },
+                "50%": { transform: "scaleY(1)" },
+              },
+              shimmer: {
+                "0%": { backgroundPosition: "-200% 0" },
+                "100%": { backgroundPosition: "200% 0" },
+              },
+            },
+            animation: {
+              floaty: "floaty 4s ease-in-out infinite",
+              pulseRing: "pulseRing 1.6s ease-out infinite",
+              wave: "wave 0.9s ease-in-out infinite",
+              shimmer: "shimmer 6s linear infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body, #root { height: 100%; }
+      body {
+        background: #060114;
+        color: #f4eaff;
+        font-family: 'Inter', system-ui, sans-serif;
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .glass {
+        background: linear-gradient(140deg, rgba(75,29,150,0.35), rgba(58,168,255,0.18) 60%, rgba(255,94,196,0.18));
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        border: 1px solid rgba(255,255,255,0.10);
+      }
+      .glass-strong {
+        background: linear-gradient(140deg, rgba(20,8,52,0.85), rgba(40,12,80,0.75) 60%, rgba(60,18,110,0.65));
+        backdrop-filter: blur(22px) saturate(140%);
+        -webkit-backdrop-filter: blur(22px) saturate(140%);
+        border: 1px solid rgba(255,255,255,0.10);
+      }
+      .neon-border {
+        position: relative;
+      }
+      .neon-border::before {
+        content: '';
+        position: absolute; inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, #ff5ec4, #3aa8ff, #b76bff, #ff5ec4);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+        pointer-events: none;
+      }
+      .glow-text {
+        text-shadow: 0 0 12px rgba(255,94,196,0.55), 0 0 32px rgba(58,168,255,0.35);
+      }
+      .grid-bg {
+        background-image:
+          radial-gradient(circle at 20% 20%, rgba(255,94,196,0.25), transparent 40%),
+          radial-gradient(circle at 80% 30%, rgba(58,168,255,0.25), transparent 45%),
+          radial-gradient(circle at 50% 90%, rgba(183,107,255,0.25), transparent 45%);
+      }
+      .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+      .scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(255,94,196,0.35); border-radius: 6px; }
+      .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+      .btn {
+        @apply px-4 py-2 rounded-xl font-medium tracking-wide transition-all duration-200;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #ff5ec4, #b76bff 60%, #3aa8ff);
+        color: white;
+        box-shadow: 0 8px 30px rgba(255,94,196,0.35);
+      }
+      .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 40px rgba(255,94,196,0.5); }
+      .btn-ghost {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+      input, textarea, select {
+        background: rgba(10,4,30,0.6);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: #f4eaff;
+        border-radius: 12px;
+        padding: 10px 14px;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      input:focus, textarea:focus, select:focus {
+        border-color: rgba(255,94,196,0.6);
+        box-shadow: 0 0 0 3px rgba(255,94,196,0.15);
+      }
+      @media (max-width: 640px) {
+        .glass { backdrop-filter: blur(12px) saturate(130%); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
