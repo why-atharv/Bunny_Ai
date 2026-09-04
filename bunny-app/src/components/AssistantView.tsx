@@ -132,6 +132,23 @@ export default function AssistantView() {
                 return { ok: false, error: String(e?.message || e) };
               }
             }
+            if (name === "closeTab") {
+              try {
+                window.close();
+                return { ok: true, note: "Attempted to close the tab." };
+              } catch (e: any) {
+                return { ok: false, error: String(e?.message || e) };
+              }
+            }
+            if (name === "playYouTubeVideo") {
+              try {
+                const q: string = args?.searchQuery || "";
+                if (q) window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`, "_blank", "noopener,noreferrer");
+                return { ok: true, played: q };
+              } catch (e: any) {
+                return { ok: false, error: String(e?.message || e) };
+              }
+            }
             return { ok: false, error: "unknown tool" };
           },
           onError: (e) => setToast(e),

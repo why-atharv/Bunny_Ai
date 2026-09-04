@@ -105,6 +105,8 @@ export class TTSSession {
   }
 
   private async handleUserTurn(text: string): Promise<void> {
+    this.audio.stopPlayback();
+    this.speaking = false;
     this.pushHistory("user", text);
 
     const sys = this.opts.systemOverride || buildSystemPrompt(this.opts.sassiness);

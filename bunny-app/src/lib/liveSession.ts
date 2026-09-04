@@ -26,6 +26,21 @@ const TOOLS: any = [
           required: ["url"],
         },
       },
+      {
+        name: "closeTab",
+        description: "Close the current browser tab or window. Use this when the user says to close the tab, exit, or close the page.",
+      },
+      {
+        name: "playYouTubeVideo",
+        description: "Search for and play a specific video on YouTube. Use when the user asks to play a song or video.",
+        parameters: {
+          type: "object",
+          properties: {
+            searchQuery: { type: "string", description: "The name of the video or song to search for on YouTube." },
+          },
+          required: ["searchQuery"],
+        },
+      },
     ],
   },
 ];
